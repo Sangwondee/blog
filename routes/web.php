@@ -11,26 +11,26 @@
 |
 */
 
-Route::get('/', function () {
-    return view('user.blog');
+// User Route For
+Route::group(['namespace' => 'User'] , function(){
+  Route::get('/', 'HomeController@index') ;
+  Route::get('post','PostController@index')->name('post');
 });
 
-Route::get('post',function(){
-    return view('user.post');
-})->name('post');
 
-Route::get('admin/home',function(){
-    return view('admin.home');
-})->name('post');
 
-Route::get('admin/post',function(){
-    return view('admin.post.post');
-});
+// Admin Route
+Route::group(['namespace' => 'Admin'], function(){
 
-Route::get('admin/tag',function(){
-    return view('admin.tag.tag');
-});
+  Route::get('admin/home','HomeController@index')->name('admin.home');
 
-Route::get('admin/category',function(){
-    return view('admin.category.category');
+  // Admin User Route
+  Route::resource('admin/user','UserController');
+  
+  //Admin Post Route
+  Route::resource('admin/post','PostController');
+  // Admin Tag Route
+  Route::resource('admin/tag','TagController');
+  // Admin Category Route
+  Route::resource('admin/category','CategoryController');
 });
