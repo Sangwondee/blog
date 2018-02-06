@@ -23,15 +23,11 @@
             <div class="box-header with-border">
               <h3 class="box-title">Title</h3>
             </div>
-            @if (count($errors) > 0 )
-                @foreach ($errors->all() as $error)
-                  <p class="alert alert-danger"> {{ $error }}</p>
-                @endforeach
-            @endif
+            @include('includes.messages')
             <!-- /.box-header -->
             <!-- form start -->
             <form role="form" action="{{ route('post.store') }}" method="post">
-              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+              {{ csrf_field() }}
               <div class="box-body">
                 <div class="col-lg-6">
                   <div class="form-group">
@@ -75,7 +71,8 @@
               </div>
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="reset" class="btn btn-danger">Reset</button>
+                <button type="reset" class="btn btn-warning">Reset</button>
+                <a href="{{ route('post.index') }}" class="btn btn-danger">Back</a>
               </div>
             </form>
           </div>
@@ -91,3 +88,26 @@
   </div>
   <!-- /.content-wrapper -->
 @endsection
+<!-- jQuery 2.2.3 -->
+<script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="../../plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/app.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
+<!-- CK Editor -->
+<script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script src="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<script>
+  $(function () {
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace('editor1');
+    //bootstrap WYSIHTML5 - text editor
+    $(".textarea").wysihtml5();
+  });
+</script>

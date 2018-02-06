@@ -6,7 +6,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Text Editors
+        Tag
         <small>Advanced form element</small>
       </h1>
       <ol class="breadcrumb">
@@ -22,11 +22,13 @@
         <div class="col-md-12">
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Title</h3>
+              <h3 class="box-title">Tag add data</h3>
             </div>
+            @include('includes.messages')
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form">
+            <form role="form" action="{{ route('tag.store')}}" method="post">
+              {{ csrf_field() }}
               <div class="box-body">
                 <div class="col-lg-offset-3 col-lg-6">
                   <div class="form-group">
@@ -40,7 +42,8 @@
                   </div>
                   <div class="form-grop">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="reset" class="btn btn-danger">Reset</button>
+                    <button type="reset" class="btn btn-warning">Reset</button>
+                    <a href="{{ route('tag.index') }}" class="btn btn-danger">Back</a>
                   </div>
                 </div>
               </div>

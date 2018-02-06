@@ -24,9 +24,11 @@
             <div class="box-header with-border">
               <h3 class="box-title">Category</h3>
             </div>
+            @include('includes.messages')
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form">
+            <form role="form" action="{{ route('category.store')}}" method="post">
+              {{ csrf_field() }}
               <div class="box-body">
                 <div class="col-lg-offset-3 col-lg-6">
                   <div class="form-group">
@@ -40,7 +42,8 @@
                   </div>
                   <div class="form-grop">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="reset" class="btn btn-danger">Reset</button>
+                    <button type="reset" class="btn btn-warning">Reset</button>
+                    <a href="{{ route('category.index') }}" class="btn btn-danger">Back</a>
                   </div>
                 </div>
               </div>
