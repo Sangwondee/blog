@@ -23,9 +23,15 @@
             <div class="box-header with-border">
               <h3 class="box-title">Title</h3>
             </div>
+            @if (count($errors) > 0 )
+                @foreach ($errors->all() as $error)
+                  <p class="alert alert-danger"> {{ $error }}</p>
+                @endforeach
+            @endif
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form">
+            <form role="form" action="{{ route('post.store') }}" method="post">
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <div class="box-body">
                 <div class="col-lg-6">
                   <div class="form-group">
@@ -64,9 +70,7 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body pad">
-                  <form>
                     <textarea class="textarea" placeholder="Place some text here" name="body" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                  </form>
                 </div>
               </div>
               <div class="box-footer">
