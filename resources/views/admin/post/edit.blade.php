@@ -12,14 +12,14 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Text Editors
-        <small>Advanced form element</small>
+        Edit
+        {{-- <small>Advanced form element</small> --}}
       </h1>
-      <ol class="breadcrumb">
+      {{-- <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Forms</a></li>
         <li class="active">Editors</li>
-      </ol>
+      </ol> --}}
     </section>
 
     <!-- Main content -->
@@ -28,7 +28,7 @@
         <div class="col-md-12">
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Title</h3>
+              <h3 class="box-title">Edit</h3>
             </div>
             @include('includes.messages')
             <!-- /.box-header -->
@@ -70,7 +70,13 @@
                     <label>Select Tags</label>
                     <select class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;" name="tags[]">
                       @foreach ($tags as $tag)
-                        <option value="{{ $tag->id }}">{{ $tag->name}}</option>
+                        <option value="{{ $tag->id }}"
+                          @foreach ($post->tags as $postTag)
+                            @if($postTag->id == $tag->id)
+                              selected
+                            @endif
+                          @endforeach
+                          >{{ $tag->name}}</option>
                       @endforeach
                     </select>
                   </div>
@@ -78,7 +84,13 @@
                     <label>Select Category</label>
                     <select class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;" name="categories[]">
                       @foreach ($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name}}</option>
+                        <option value="{{ $category->id }}"
+                          @foreach ($post->categories as $postCategory)
+                            @if($postCategory->id == $category->id)
+                              selected
+                            @endif
+                          @endforeach
+                          >{{ $category->name}}</option>
                       @endforeach
                     </select>
                   </div>
@@ -88,12 +100,12 @@
               <div class="box">
                 <div class="box-header">
                   <h3 class="box-title">Write Post Body Here
-                    <small>Simple and fast</small>
+                    {{-- <small>Simple and fast</small> --}}
                   </h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body pad">
-                    <textarea class="textarea" placeholder="Place some text here" name="body" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ $post->body }}</textarea>
+                    <textarea id="editor1" name="body" style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                 </div>
               </div>
               <div class="box-footer">

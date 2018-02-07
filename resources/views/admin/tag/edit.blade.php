@@ -7,13 +7,13 @@
     <section class="content-header">
       <h1>
         Tag
-        <small>Advanced form element</small>
+        {{-- <small>Advanced form element</small> --}}
       </h1>
-      <ol class="breadcrumb">
+      {{-- <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Forms</a></li>
         <li class="active">Editors</li>
-      </ol>
+      </ol> --}}
     </section>
 
     <!-- Main content -->
@@ -22,7 +22,7 @@
         <div class="col-md-12">
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Tag Edit data</h3>
+              <h3 class="box-title">Edit data</h3>
             </div>
             @include('includes.messages')
             <!-- /.box-header -->

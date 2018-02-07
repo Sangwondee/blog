@@ -9,13 +9,13 @@
     <section class="content-header">
       <h1>
         Tag Show
-        <small>it all starts here</small>
+        {{-- <small>it all starts here</small> --}}
       </h1>
-      <ol class="breadcrumb">
+      {{-- <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Examples</a></li>
         <li class="active">Blank page</li>
-      </ol>
+      </ol> --}}
     </section>
 
     <!-- Main content -->
@@ -24,7 +24,7 @@
       <!-- Default box -->
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title">Tags</h3>
+          <h3 class="box-title"></h3>
           <a href="{{ route('tag.create') }}" class="btn btn-success">Add New</a>
 
           <div class="box-tools pull-right">
@@ -37,7 +37,7 @@
         <div class="box-body">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Table With Full Features</h3>
+              <h3 class="box-title">Data Table </h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -94,7 +94,7 @@
         </div>
         <!-- /.box-body -->
         <div class="box-footer">
-          Footer
+          {{-- Footer --}}
         </div>
         <!-- /.box-footer-->
       </div>

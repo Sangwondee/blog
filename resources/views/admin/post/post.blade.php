@@ -10,14 +10,14 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Text Editors
-        <small>Advanced form element</small>
+        Add Posts
+        {{-- <small>Advanced form element</small> --}}
       </h1>
-      <ol class="breadcrumb">
+      {{-- <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Forms</a></li>
         <li class="active">Editors</li>
-      </ol>
+      </ol> --}}
     </section>
 
     <!-- Main content -->
@@ -26,7 +26,7 @@
         <div class="col-md-12">
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Title</h3>
+              <h3 class="box-title">Add</h3>
             </div>
             @include('includes.messages')
             <!-- /.box-header -->
@@ -84,13 +84,13 @@
               <!-- /.box-body -->
               <div class="box">
                 <div class="box-header">
-                  <h3 class="box-title">Write Post Body Here
-                    <small>Simple and fast</small>
+                  <h3 class="box-title">Body
+                    {{-- <small>Simple and fast</small> --}}
                   </h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body pad">
-                    <textarea class="textarea" placeholder="Place some text here" name="body" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                    <textarea id="editor1" name="body" style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                 </div>
               </div>
               <div class="box-footer">
