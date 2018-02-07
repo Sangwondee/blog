@@ -1,5 +1,12 @@
 @extends('admin.layouts.app')
 
+
+@section('headSection')
+
+<link rel="stylesheet" href="{{ asset('admin/plugins/select2/select2.min.css') }}">
+
+@endsection
+
 @section('main-content')
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -45,16 +52,35 @@
                   </div>
                 </div>
                 <div class="col-lg-6">
+                  <br>
                   <div class="form-group">
-                    <label for="image">File input</label>
-                    <input type="file" id="image" name="image">
+                    <div class="pull-right">
+                      <label for="image">File input</label>
+                      <input type="file" id="image" name="image">
+                    </div>
+                    <div class="checkbox pull-left">
+                      <label>
+                        <input type="checkbox" name="status" value="1" @if ($post->status == 1 ) {{ 'checked' }} @endif> Publish
+                      </label>
+                    </div>
                   </div>
+
                   <br>
-                  <br>
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" name="status" @if( $post->status == 1) checked @endif> Publish
-                    </label>
+                  <div class="form-group" style="margin-top:18px;">
+                    <label>Select Tags</label>
+                    <select class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;" name="tags[]">
+                      @foreach ($tags as $tag)
+                        <option value="{{ $tag->id }}">{{ $tag->name}}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                  <div class="form-group" style="margin-top:18px;">
+                    <label>Select Category</label>
+                    <select class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;" name="categories[]">
+                      @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name}}</option>
+                      @endforeach
+                    </select>
                   </div>
                 </div>
               </div>
@@ -72,7 +98,6 @@
               </div>
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="reset" class="btn btn-warning">Reset</button>
                 <a href="{{ route('post.index') }}" class="btn btn-danger">Back</a>
               </div>
             </form>
@@ -89,26 +114,19 @@
   </div>
   <!-- /.content-wrapper -->
 @endsection
-<!-- jQuery 2.2.3 -->
-<script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
-<!-- Bootstrap 3.3.6 -->
-<script src="../../bootstrap/js/bootstrap.min.js"></script>
-<!-- FastClick -->
-<script src="../../plugins/fastclick/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="../../dist/js/app.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
-<!-- CK Editor -->
-<script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
-<!-- Bootstrap WYSIHTML5 -->
-<script src="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+@section('footerSection')
+<script src="{{ asset('admin/plugins/select2/select2.full.min.js') }}"></script>
+{{-- <script src="{{  asset('admin/ckeditor/ckeditor.js') }}"></script> --}}
+{{-- <script>
+    $(function () {
+      // Replace the <textarea id="editor1"> with a CKEditor
+      // instance, using default configuration.
+      CKEDITOR.replace('editor1');
+    });
+</script> --}}
 <script>
-  $(function () {
-    // Replace the <textarea id="editor1"> with a CKEditor
-    // instance, using default configuration.
-    CKEDITOR.replace('editor1');
-    //bootstrap WYSIHTML5 - text editor
-    $(".textarea").wysihtml5();
+  $(document).ready(function() {
+    $(".select2").select2();
   });
 </script>
+@endsection

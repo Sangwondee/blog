@@ -13,7 +13,7 @@ class post extends Model
     }
 
     // Many to many relation ship -> post to category
-    public function categoies(){
+    public function categories(){
       return $this->belongsToMany('App\Model\user\category','category_posts');
     }
 }
